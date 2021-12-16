@@ -4,7 +4,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <style>
+    <!-- <style>
         .arjs-loader {
             height: 100%;
             width: 100%;
@@ -23,13 +23,22 @@
             font-size: 1.25em;
             color: white;
         }
-    </style>      
+    </style>       -->
 </head>
 <body style="margin : 0px; overflow: hidden;">
-    <div class="arjs-loader">
+    <!-- <div class="arjs-loader">
         <div>Loading, please wait...</div>
-    </div>    
-    <a-scene embedded arjs>
+    </div>     -->
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+        <a-assets>
+            <img id="earth-sphere" src="images/earth-sphere.jpeg" />
+        </a-assets>    
+        <a-marker type="pattern" url="data/kanji.patt">
+            <a-sphere position="0 0.5 0" 
+                   material="src: #earth-sphere; transparent: true; opacity: 0.95;"
+                   animation__rotate = "property: rotation; dur: 8000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;">
+            </a-sphere>
+        </a-marker>            
         <!-- <a-nft
             type="nft"
             url="trex-image/trex"
@@ -49,9 +58,9 @@
             <!-- <a-sphere id="sun" position="0 0 0" rotation="0 0 0" radius="1" color="#f47920"></a-sphere>
             <a-sky color="#ECECEC"></a-sky> -->        
         <!-- </a-nft>   -->
-        <a-marker preset="hiro">
+        <!-- <a-marker preset="hiro">
             <a-sphere position="100 100 0" scale="10 10 10" radius="5" color="#EF2D5E"></a-sphere>
-        </a-marker>        
+        </a-marker>         -->
         <a-entity camera></a-entity>
     </a-scene>    
 </body>
